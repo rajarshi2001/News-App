@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for d in data.articles %}
+            <div class="col-sm-4 m-2">
+                <div class="card border border-danger" style="width: 18rem;">
+                    <img src="{{d.urlToImage}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="text-success"> <u><b><i>Source</i></b></u> : {{d.source.name}} ||  <u><b><i>Author</i></b></u>  : {{d.author}}  </p>
+                      <h5 class="card-title text-primary"> <b class="text-danger"> <u><i>Headlines</i> </u></b>: <i>{{d.title}}</i> </h5>
+                      <p class="card-text"> <h5> <b class="text-danger"> <u><i>Description</i> </u></b>: </h5> {{d.description}}</p>
+                      <h5 class="card-title"><b class="text-danger"> <u><i>Published at</i> </u></b>: {{d.publishedAt}}</h5>
+                      <div class="text-center">
+                        <a href="{{d.url}}" target="_blank" class="btn btn-primary px-5">View More</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
